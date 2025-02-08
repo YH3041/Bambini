@@ -49,7 +49,7 @@ const Home: NextPage<IHome> = ({ banner }) => {
 
   return (
     <Wrap>
-      <SEO title="영화 드라마 평점, 정보를 확인하세요" content="무비닥에서 보고 싶은 영화와 드라마에 대한 평점 및 정보를 확인하실 수 있습니다." url="https://movdak.kr/" ogImage={IMG_LOGO} />
+      <SEO title="언어인지발달상담센터" content="발달재활서비스/언어발달지원/우리아이심리지원서비스/교육청 방과후&치료지원/바우처 서비스 제공 기관" url="https://movdak.kr/" ogImage={IMG_LOGO} />
       <Banner banner={banner} />
       <Trending />
       <div style={{ height: 1000 }}></div>

@@ -10,10 +10,10 @@ interface ISeo {
 const SEO: React.FC<ISeo> = ({ title, content, url, ogImage }) => {
   return (
     <Head>
-      <title>무비닥 - {title}</title>
+      <title>밤비니 - {title}</title>
       <meta name="description" content={content} />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content={`무비닥 - ${title}`} />
+      <meta property="og:title" content={`밤비니 - ${title}`} />
       <meta property="og:description" content={content} />
       <meta property="og:url" content={url} />
       <meta property="og:locale" content="ko_KR" />
