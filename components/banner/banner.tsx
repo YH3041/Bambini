@@ -8,13 +8,14 @@ import { useState } from 'react';
 
 interface IBanner {
   banner: string;
+  onButtonClick: () => void;
 }
 
-const Banner: React.FC<IBanner> = ({ banner }) => {
-  //? next
+const Banner: React.FC<IBanner> = ({ banner, onButtonClick }) => {
+  // next
   const { push } = useRouter();
 
-  //? state
+  // state
   const [query, setQuery] = useState<string>('');
 
   const searchQueryHandler = (event: INPUT_PARAMS_TYPE) => {
@@ -25,23 +26,22 @@ const Banner: React.FC<IBanner> = ({ banner }) => {
 
   return (
     <Wrap>
-      <BackgroundWrap>
-        <Image src={banner} fill alt="배너 이미지" />
-      </BackgroundWrap>
       <ContentLayout>
         <ContentWrap>
-          <Title># 발달재활서비스</Title>
-          <Title># 언어발달지원</Title>
-          <Title># 우리아이심리지원서비스</Title>
-          <Title># 교육청 방과후&치료지원</Title>
-          <Title>바우처 서비스 제공 기관</Title>
-          {/* <SearchInputWrap>
-            <input type="text" placeholder="영화 또는 TV 프로그램을 검색해보세요..." onChange={(e) => setQuery(e.target.value)} onKeyUp={searchQueryHandler} />
-            <button>Search</button>
-          </SearchInputWrap> */}
+          <HighlightText>우리 아이의 꿈이 자라나는 곳</HighlightText>
+          <MainTitle>밤비니</MainTitle>
+          <SubTitle>언어인지발달상담센터</SubTitle>
+          <ButtonWrap>
+            <Button>센터<br />소개</Button>
+            <Button>선생님<br />소개</Button>
+            <Button onClick={onButtonClick}>프로그램<br />안내</Button>
+            <Button>평가<br />안내</Button>
+            <Button>예약<br />문의</Button>
+            <Button>오시는<br />길</Button>
+          </ButtonWrap>
         </ContentWrap>
       </ContentLayout>
-      <OpacityLayer />
+      {/* <OpacityLayer /> */}
     </Wrap>
   );
 };
@@ -50,8 +50,8 @@ export default Banner;
 
 const Wrap = styled.div`
   width: 100%;
-  height: 450px;
-  background-color: var(--black);
+  height: 900px;
+  background-color: white;
   display: flex;
   align-items: center;
   position: relative;
@@ -60,20 +60,7 @@ const Wrap = styled.div`
     height: 700px;
   }
 `;
-const BackgroundWrap = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0.5;
-  overflow: hidden;
 
-  img {
-    object-fit: cover;
-    object-position: center;
-  }
-`;
 const ContentWrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -84,62 +71,93 @@ const ContentWrap = styled.div`
   max-width: 800px;
   margin: 0 auto;
 `;
-const Title = styled.span`
-  font-size: 30px;
-  font-weight: 700;
-  padding-bottom: 12px;
+
+const HighlightText = styled.span`
+  font-size: 24px;
+  color: black;
+  background-color: #eec45e;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 56px;
+  text-align: center;
+
   ${media('md')} {
-    margin-bottom: 0;
-    font-size: 60px;
+    font-size: 32px;
   }
 `;
-const SubTitle = styled.span`
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 40px;
+
+const MainTitle = styled.h1`
+  font-size: 48px;
+  color: #e7be48;
+  margin-bottom: 24px;
+
   ${media('md')} {
+    font-size: 56px;
+  }
+`;
+
+const SubTitle = styled.h3`
+  font-size: 32px;
+  color : black;
+
+  ${media('md')} {
+    font-size: 40px;
+  }
+`;
+
+const ButtonWrap = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+  margin-top: 72px;
+  justify-items: center;
+
+  ${media('md')} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+const Button = styled.div`
+  width: 130px;
+  height: 110px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  letter-spacing: 1;
+  line-height: 1.3;
+  cursor: pointer;
+
+  &:nth-child(1) {
+    background-color: #e39799; /* 센터소개 - 빨간색 */
+  }
+  &:nth-child(2) {
+    background-color: #ac9ebf; /* 치료 안내 - 보라색 */
+  }
+  &:nth-child(3) {
+    background-color: #92d1d6; /* 평가 안내 - 청록색 */
+  }
+  &:nth-child(4) {
+    background-color: #ffc27f; /* 선생님 소개 - 핑크색 */
+  }
+  &:nth-child(5) {
+    background-color: #b1d6a8; /* 센터소개 반복 - 회색 */
+  }
+  &:nth-child(6) {
+    background-color: #96a4c7; /* 센터소개 반복 - 회색 */
+  }
+
+  ${media('md')} {
+    width: 200px;
+    height: 110px;
     font-size: 24px;
   }
 `;
-const SearchInputWrap = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  input {
-    width: calc(100% - 100px);
-    height: 50px;
-    background-color: white;
-    outline: 0;
-    border: 0;
-    border-radius: 30px 0 0 30px;
-    padding: 0 15px;
-    font-size: 14px;
-    ${media('md')} {
-      width: 100%;
-      height: 60px;
-      font-size: 18px;
-      padding: 0 30px;
-    }
-  }
 
-  button {
-    width: 100px;
-    height: 50px;
-    background: var(--gradient);
-    color: white;
-    outline: 0;
-    border: 0;
-    border-radius: 0 30px 30px 0;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    ${media('md')} {
-      width: 150px;
-      height: 60px;
-      font-size: 18px;
-    }
-  }
-`;
 const OpacityLayer = styled.div`
   width: 100%;
   height: 250px;

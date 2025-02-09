@@ -21,6 +21,7 @@ const Header = () => {
   const [mobileMenu, setMobileMenu] = useState<boolean>(false);
   const [query, setQuery] = useState<string>();
   const [showSearch, setShowSearch] = useState<boolean>(false);
+  const [showDropdown, setShowDropdown] = useState<boolean>(false);
 
   const openSearch = () => {
     setMobileMenu(false);
@@ -30,6 +31,7 @@ const Header = () => {
   const openMobileMenu = () => {
     setMobileMenu(true);
     setShowSearch(false);
+    setShowDropdown(true); 
   };
 
   const searchQueryHandler = (event: INPUT_PARAMS_TYPE) => {
@@ -58,22 +60,38 @@ const Header = () => {
         <Image src={IMG_LOGO} fill alt="로고" />
         </div>
         <span>
-          <span className="highlight">밤비니</span>언어인지발달상담센터
+          밤비니언어인지발달상담센터
         </span>
         </LogoWrap>
         <MenuItems>
-          <MenuItem onClick={() => navigationHandler('movie')}>안내</MenuItem>
+          <MenuItem onClick={() => navigationHandler('movie')}>센터 소개</MenuItem>
+          <MenuItem onClick={() => navigationHandler('tv')}>선생님 소개</MenuItem>
+          <MenuItem onClick={() => navigationHandler('tv')}>프로그램 안내</MenuItem>
+          <MenuItem onClick={() => navigationHandler('tv')}>평가 안내</MenuItem>
+          <MenuItem onClick={() => navigationHandler('tv')}>예약 문의</MenuItem>
           <MenuItem onClick={() => navigationHandler('tv')}>오시는 길</MenuItem>
+        </MenuItems>
           {/* <MenuItem>
             <HiOutlineSearch onClick={openSearch} />
           </MenuItem> */}
-        </MenuItems>
 
         <MobileMenuItems>
-          <HiOutlineSearch onClick={openSearch} />
+          {/* <HiOutlineSearch onClick={openSearch} /> */}
           {mobileMenu ? <VscChromeClose onClick={() => setMobileMenu(false)} /> : <SlMenu onClick={openMobileMenu} />}
         </MobileMenuItems>
       </ContentLayout>
+
+      {mobileMenu && showDropdown && (
+        <DropdownMenu>
+          <DropdownItem onClick={() => navigationHandler('movie')}>센터 소개</DropdownItem>
+          <DropdownItem onClick={() => navigationHandler('tv')}>선생님 소개</DropdownItem>
+          <DropdownItem onClick={() => navigationHandler('movie')}>프로그램 안내</DropdownItem>
+          <DropdownItem onClick={() => navigationHandler('tv')}>평가 안내</DropdownItem>
+          <DropdownItem onClick={() => navigationHandler('movie')}>예약 문의</DropdownItem>
+          <DropdownItem onClick={() => navigationHandler('tv')}>오시는 길</DropdownItem>
+        </DropdownMenu>
+      )}
+
       {showSearch && (
         <SearchBar>
           <ContentWrap>
@@ -94,12 +112,11 @@ const Wrap = styled.header`
   position: fixed;
   transform: translateY(0);
   width: 100%;
-  height: 60px;
-  z-index: 1;
+  height: 50px;
   display: flex;
   align-items: center;
   transition: all ease 0.5s;
-  z-index: 2;
+  z-index: 10;
   &.top {
     background-color: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(3.5px);
@@ -109,7 +126,7 @@ const Wrap = styled.header`
     background-color: var(--black3);
   }
   &.hide {
-    transform: translateY(-60px);
+    transform: translateY(-50px);
   }
 `;
 const LogoWrap = styled.div`
@@ -127,15 +144,11 @@ const LogoWrap = styled.div`
   }
 
   span {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     color: white;
+    letter-spacing: 1px;
   }
-
-  .highlight {
-     font-size: 20px;
-    font-weight: bold;
-  }  
 `;
 const ContentWrap = styled.div`
   display: flex;
@@ -145,6 +158,8 @@ const ContentWrap = styled.div`
 const MenuItems = styled.ul`
   list-style-type: none;
   align-items: center;
+  display: none;
+
   ${media('md')} {
     display: flex;
   }
@@ -157,6 +172,8 @@ const MenuItem = styled.li`
   color: white;
   font-weight: 500;
   position: relative;
+  font-size: 16px;
+
   &.searchIcon {
     margin-right: 0;
   }
@@ -227,3 +244,48 @@ const SearchInputWrap = styled.div`
     }
   }
 `;
+
+const DropdownMenu = styled.div`
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 140px;
+  background-color: rgba(0, 0, 0, 0.25); /* 투명 배경 */
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  z-index: 20;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  animation: dropdownSlide 0.3s ease forwards;
+`;
+
+
+
+const DropdownItem = styled.div`
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--pink);
+  }
+`;
+
+const dropdownSlide = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+

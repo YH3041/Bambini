@@ -1,6 +1,13 @@
 const BASE_URL = '/images';
 
-//? Logo
+//
+export const IMG_ART = `${BASE_URL}/art.png`;
+export const IMG_COGNITIVE = `${BASE_URL}/cognitive.png`;
+export const IMG_LANGUAGE = `${BASE_URL}/language.png`;
+export const IMG_SENSORY = `${BASE_URL}/sensory.png`;
+export const IMG_GROUP = `${BASE_URL}/group.png`;
+
+// Logo
 export const IMG_LOGO = `${BASE_URL}/logo/logo2.png`;
 export const IMG_INFO_LOGO = `${BASE_URL}/logo/infoLogo.png`;
 export const IMG_GOOGLE_LOGO = `${BASE_URL}/logo/google.svg`;
