@@ -1,28 +1,19 @@
 import ContentLayout from '@components/layout/contentLayout';
-import { INPUT_PARAMS_TYPE } from '@constants/types/event.constants';
 import styled from '@emotion/styled';
 import { media } from '@styles/media';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { forwardRef } from 'react';
 
 interface IBanner {
   banner: string;
-  onButtonClick: () => void;
+  onButtonClick: (idx: number) => void;
 }
 
-const Banner: React.FC<IBanner> = ({ banner, onButtonClick }) => {
+const sectionList = ["센터<br />소개", "선생님<br />소개", "프로그램<br />안내", "바우처<br />안내", "예약<br />문의", "오시는<br />길"]
+
+const Banner = forwardRef<HTMLDivElement, IBanner>((props, ref) => {
   // next
   const { push } = useRouter();
-
-  // state
-  const [query, setQuery] = useState<string>('');
-
-  const searchQueryHandler = (event: INPUT_PARAMS_TYPE) => {
-    if (event.key === 'Enter') {
-      push(`/search/${query}`);
-    }
-  };
 
   return (
     <Wrap>
@@ -32,19 +23,15 @@ const Banner: React.FC<IBanner> = ({ banner, onButtonClick }) => {
           <MainTitle>밤비니</MainTitle>
           <SubTitle>언어인지발달상담센터</SubTitle>
           <ButtonWrap>
-            <Button>센터<br />소개</Button>
-            <Button>선생님<br />소개</Button>
-            <Button onClick={onButtonClick}>프로그램<br />안내</Button>
-            <Button>평가<br />안내</Button>
-            <Button>예약<br />문의</Button>
-            <Button>오시는<br />길</Button>
+          {sectionList.map((title, idx) => (
+            <Button key={idx} onClick={() => props.onButtonClick(idx)} dangerouslySetInnerHTML={{ __html: title }} />
+          ))}
           </ButtonWrap>
         </ContentWrap>
       </ContentLayout>
-      {/* <OpacityLayer /> */}
     </Wrap>
   );
-};
+});
 
 export default Banner;
 
@@ -73,7 +60,7 @@ const ContentWrap = styled.div`
 `;
 
 const HighlightText = styled.span`
-  font-size: 24px;
+  font-size: 22px;
   color: black;
   background-color: #eec45e;
   padding: 10px;

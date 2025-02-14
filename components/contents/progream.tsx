@@ -3,9 +3,8 @@ import styled from '@emotion/styled';
 import { media } from '@styles/media';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useState, useRef } from 'react';
-import { IMG_LANGUAGE, IMG_COGNITIVE, IMG_SENSORY, IMG_ART, IMG_GROUP } from '@constants/images/images.constants';
-import React, { forwardRef } from 'react';
+import { IMG_LANGUAGE, IMG_COGNITIVE, IMG_ART, IMG_GROUP } from '@constants/images/images.constants';
+import { forwardRef } from 'react';
 
 interface IProgream {
 
@@ -32,12 +31,6 @@ const Progream = forwardRef<HTMLDivElement, IProgream>((props, ref) => {
                   <Image src={IMG_COGNITIVE} fill alt="인지" />
               </ImageWrap>
               <SubTitle>인지</SubTitle>
-            </ItemWrap>
-            <ItemWrap>
-              <ImageWrap>
-                  <Image src={IMG_SENSORY} fill alt="감각통합" />
-              </ImageWrap>
-              <SubTitle>감각통합</SubTitle>
             </ItemWrap>
             <ItemWrap>
               <ImageWrap>
@@ -110,9 +103,13 @@ const ProgramWrap = styled.div`
   padding: 20px;
   margin-bottom: 20px;
   
-  & > :nth-child(5) {
-    grid-column: span 2;
-    justify-self: center;
+  ${media('md')} {
+    grid-template-columns: repeat(3, 1fr);
+
+      & > :nth-child(4) {
+      grid-column: span 3;
+      justify-self: center;
+    }
   }
 `;
 

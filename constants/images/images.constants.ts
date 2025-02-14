@@ -6,6 +6,7 @@ export const IMG_COGNITIVE = `${BASE_URL}/cognitive.png`;
 export const IMG_LANGUAGE = `${BASE_URL}/language.png`;
 export const IMG_SENSORY = `${BASE_URL}/sensory.png`;
 export const IMG_GROUP = `${BASE_URL}/group.png`;
+export const IMG_TECHERS = `${BASE_URL}/techers.png`;
 
 // Logo
 export const IMG_LOGO = `${BASE_URL}/logo/logo2.png`;
