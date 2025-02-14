@@ -72,7 +72,22 @@ const Home: NextPage<IHome> = ({ banner }) => {
     }, []);
 
   const handleScrollToSection = (idx: number) => {
-    sectionRefs[idx]?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const headerOffset = 60;
+    const element = sectionRefs[idx]?.current;
+  
+    if (element && idx == 1 || element && idx == 5) {
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+  
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+    else
+    {
+      sectionRefs[idx]?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
