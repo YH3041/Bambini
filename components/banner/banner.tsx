@@ -16,7 +16,7 @@ const Banner = forwardRef<HTMLDivElement, IBanner>((props, ref) => {
   const { push } = useRouter();
 
   return (
-    <Wrap>
+    <Wrap ref={ref}>
       <ContentLayout>
         <ContentWrap>
           <HighlightText>우리 아이의 꿈이 자라나는 곳</HighlightText>

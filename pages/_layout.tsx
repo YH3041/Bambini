@@ -33,13 +33,13 @@ const Layout = ({ children }: any) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
 
+  }, []);
 
 
   return (
     <div>
-      {showHeader && <Header />}
+      {/* {showHeader && <Header />} */}
       {children}
       <Footer />
     </div>

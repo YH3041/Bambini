@@ -6,27 +6,34 @@ import styled from '@emotion/styled';
 import { media } from '@styles/media';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
-import { HiOutlineSearch } from 'react-icons/hi';
+import { useState, useRef } from 'react';
 import { SlMenu } from 'react-icons/sl';
 import { VscChromeClose } from 'react-icons/vsc';
 
-const Header = () => {
+interface IHeader
+{
+  onButtonClick: (idx: number) => void;
+}
+
+const Header : React.FC<IHeader> = ({onButtonClick}) => {
   //? next
   const { push } = useRouter();
 
+  const sectionRefs = [
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+  ];
+
   //? state
   const [show, setShow] = useState<string>('top');
-  const [lastScrollY, setLastScrollY] = useState<number>(0);
   const [mobileMenu, setMobileMenu] = useState<boolean>(false);
   const [query, setQuery] = useState<string>();
   const [showSearch, setShowSearch] = useState<boolean>(false);
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
-
-  const openSearch = () => {
-    setMobileMenu(false);
-    setShowSearch(true);
-  };
 
   const openMobileMenu = () => {
     setMobileMenu(true);
@@ -43,15 +50,6 @@ const Header = () => {
     }
   };
 
-  const navigationHandler = (type: 'movie' | 'tv') => {
-    if (type === 'movie') {
-      push('/explore/movie');
-    } else {
-      push('/explore/tv');
-    }
-    setMobileMenu(false);
-  };
-
   return (
     <Wrap className={`${mobileMenu ? 'mobileView' : ''} ${show}`}>
       <ContentLayout>
@@ -64,43 +62,28 @@ const Header = () => {
         </span>
         </LogoWrap>
         <MenuItems>
-          <MenuItem onClick={() => navigationHandler('movie')}>센터 소개</MenuItem>
-          <MenuItem onClick={() => navigationHandler('tv')}>선생님 소개</MenuItem>
-          <MenuItem onClick={() => navigationHandler('tv')}>프로그램 안내</MenuItem>
-          <MenuItem onClick={() => navigationHandler('tv')}>평가 안내</MenuItem>
-          <MenuItem onClick={() => navigationHandler('tv')}>예약 문의</MenuItem>
-          <MenuItem onClick={() => navigationHandler('tv')}>오시는 길</MenuItem>
+          <MenuItem onClick={() => onButtonClick(0)}>센터 소개</MenuItem>
+          <MenuItem onClick={() => onButtonClick(1)}>선생님 소개</MenuItem>
+          <MenuItem onClick={() => onButtonClick(2)}>프로그램 안내</MenuItem>
+          <MenuItem onClick={() => onButtonClick(3)}>평가 안내</MenuItem>
+          <MenuItem onClick={() => onButtonClick(4)}>예약 문의</MenuItem>
+          <MenuItem onClick={() => onButtonClick(5)}>오시는 길</MenuItem>
         </MenuItems>
-          {/* <MenuItem>
-            <HiOutlineSearch onClick={openSearch} />
-          </MenuItem> */}
-
+        
         <MobileMenuItems>
-          {/* <HiOutlineSearch onClick={openSearch} /> */}
           {mobileMenu ? <VscChromeClose onClick={() => setMobileMenu(false)} /> : <SlMenu onClick={openMobileMenu} />}
         </MobileMenuItems>
       </ContentLayout>
 
       {mobileMenu && showDropdown && (
         <DropdownMenu>
-          <DropdownItem onClick={() => navigationHandler('movie')}>센터 소개</DropdownItem>
-          <DropdownItem onClick={() => navigationHandler('tv')}>선생님 소개</DropdownItem>
-          <DropdownItem onClick={() => navigationHandler('movie')}>프로그램 안내</DropdownItem>
-          <DropdownItem onClick={() => navigationHandler('tv')}>평가 안내</DropdownItem>
-          <DropdownItem onClick={() => navigationHandler('movie')}>예약 문의</DropdownItem>
-          <DropdownItem onClick={() => navigationHandler('tv')}>오시는 길</DropdownItem>
+          <DropdownItem onClick={() => onButtonClick(0)}>센터 소개</DropdownItem>
+          <DropdownItem onClick={() => onButtonClick(1)}>선생님 소개</DropdownItem>
+          <DropdownItem onClick={() => onButtonClick(2)}>프로그램 안내</DropdownItem>
+          <DropdownItem onClick={() => onButtonClick(3)}>평가 안내</DropdownItem>
+          <DropdownItem onClick={() => onButtonClick(4)}>예약 문의</DropdownItem>
+          <DropdownItem onClick={() => onButtonClick(5)}>오시는 길</DropdownItem>
         </DropdownMenu>
-      )}
-
-      {showSearch && (
-        <SearchBar>
-          <ContentWrap>
-            <SearchInputWrap>
-              <input type="text" placeholder="영화 또는 TV 프로그램을 검색해보세요..." onChange={(e) => setQuery(e.target.value)} onKeyUp={searchQueryHandler} />
-              <VscChromeClose onClick={() => setShowSearch(false)} />
-            </SearchInputWrap>
-          </ContentWrap>
-        </SearchBar>
       )}
     </Wrap>
   );
@@ -119,8 +102,8 @@ const Wrap = styled.header`
   z-index: 10;
   &.top {
     background-color: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(3.5px);
-    -webkit-backdrop-filter: blur(3.5px);
+    /* backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px); */
   }
   &.show {
     background-color: var(--black3);
@@ -150,11 +133,7 @@ const LogoWrap = styled.div`
     letter-spacing: 1px;
   }
 `;
-const ContentWrap = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
+
 const MenuItems = styled.ul`
   list-style-type: none;
   align-items: center;
@@ -211,38 +190,6 @@ const SearchBar = styled.div`
   position: absolute;
   top: 60px;
   animation: mobileMenu 0.3s ease forwards;
-`;
-const SearchInputWrap = styled.div`
-  display: flex;
-  align-items: center;
-  height: 40px;
-  margin-top: 10px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-
-  svg {
-    font-size: 20px;
-    flex-shrink: 0;
-    margin-left: 10px;
-    cursor: pointer;
-  }
-  input {
-    width: 100%;
-    max-width: 1180px;
-    height: 50px;
-    background-color: white;
-    outline: 0;
-    border: 0;
-    border-radius: 30px 0 0 30px;
-    padding: 0 15px;
-    font-size: 14px;
-    ${media('md')} {
-      height: 60px;
-      font-size: 20px;
-      padding: 0 30px;
-    }
-  }
 `;
 
 const DropdownMenu = styled.div`
