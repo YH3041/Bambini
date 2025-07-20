@@ -5,9 +5,9 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>MovDak</title>
+          <title>밤비니</title>
           <meta charSet="utf-8"></meta>
-          <link rel="icon" type="image/svg+xml" href="/images/logo/favicon.png" />
+          <link rel="icon" type="image/svg+xml" href="/images/logo/logo2.png" />
           <body>
             <Main />
             <NextScript />

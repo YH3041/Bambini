@@ -106,5 +106,5 @@ const Home: NextPage<IHome> = ({ banner }) => {
 export default Home;
 
 const Wrap = styled.main`
-
+  width: 100vw;                // ✅ 화면 가로 전체 사용
 `;

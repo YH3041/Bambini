@@ -7,23 +7,23 @@ const Footer = () => {
     <Wrap>
       <ContentWrap>
         <MenuItemsWrap>
-          <p>© 2023 Young Hoon</p>
+          {/* <p>© 2023 Young Hoon</p>
           <MenuItem>Terms Of Use</MenuItem>
           <MenuItem>Privacy-Policy</MenuItem>
-          <MenuItem>FAQ</MenuItem>
+          <MenuItem>FAQ</MenuItem> */}
         </MenuItemsWrap>
-        <a href="https://www.flaticon.com/authors/eucalyp" title="example icons">Images created by Eucalyp - Flaticon</a>
+        {/* <a href="https://www.flaticon.com/authors/eucalyp" title="example icons">Images created by Eucalyp - Flaticon</a> */}
         <InfoTextWrap>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. */}
         </InfoTextWrap>
         <SocialIconsWrap>
-          <Icon>
+          {/* <Icon>
             <FaFacebookF />
-          </Icon>
-          <Icon>
+          </Icon> */}
+          {/* <Icon>
             <FaInstagram />
-          </Icon>
+          </Icon> */}
         </SocialIconsWrap>
       </ContentWrap>
     </Wrap>

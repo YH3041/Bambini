@@ -65,7 +65,7 @@ const Header : React.FC<IHeader> = ({onButtonClick}) => {
           <MenuItem onClick={() => onButtonClick(0)}>센터 소개</MenuItem>
           <MenuItem onClick={() => onButtonClick(1)}>선생님 소개</MenuItem>
           <MenuItem onClick={() => onButtonClick(2)}>프로그램 안내</MenuItem>
-          <MenuItem onClick={() => onButtonClick(3)}>평가 안내</MenuItem>
+          <MenuItem onClick={() => onButtonClick(3)}>바우처 안내</MenuItem>
           <MenuItem onClick={() => onButtonClick(4)}>예약 문의</MenuItem>
           <MenuItem onClick={() => onButtonClick(5)}>오시는 길</MenuItem>
         </MenuItems>
@@ -80,7 +80,7 @@ const Header : React.FC<IHeader> = ({onButtonClick}) => {
           <DropdownItem onClick={() => onButtonClick(0)}>센터 소개</DropdownItem>
           <DropdownItem onClick={() => onButtonClick(1)}>선생님 소개</DropdownItem>
           <DropdownItem onClick={() => onButtonClick(2)}>프로그램 안내</DropdownItem>
-          <DropdownItem onClick={() => onButtonClick(3)}>평가 안내</DropdownItem>
+          <DropdownItem onClick={() => onButtonClick(3)}>바우처 안내</DropdownItem>
           <DropdownItem onClick={() => onButtonClick(4)}>예약 문의</DropdownItem>
           <DropdownItem onClick={() => onButtonClick(5)}>오시는 길</DropdownItem>
         </DropdownMenu>

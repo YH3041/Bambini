@@ -42,7 +42,7 @@ const Progream = forwardRef<HTMLDivElement, IProgream>((props, ref) => {
               <ImageWrap>
                   <Image src={IMG_GROUP} fill alt="그룹" />
               </ImageWrap>
-              <SubTitle>맞춤형 <br />짝/그룹 수업</SubTitle>
+              <SubTitle>짝/그룹 수업</SubTitle>
             </ItemWrap>
           </ProgramWrap>
         </ContentWrap>
@@ -104,12 +104,7 @@ const ProgramWrap = styled.div`
   margin-bottom: 20px;
   
   ${media('md')} {
-    grid-template-columns: repeat(3, 1fr);
-
-      & > :nth-child(4) {
-      grid-column: span 3;
-      justify-self: center;
-    }
+    grid-template-columns: repeat(4, 1fr);  // ✅ 4개 한 줄
   }
 `;
 
@@ -134,7 +129,9 @@ const ImageWrap = styled.div`
 `;
 
 const SubTitle = styled.h3`
-    font-size: 28px;
-    font-weight: bold;
-    color: white;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+
+  white-space: nowrap;       // ✅ 줄바꿈 없이 한 줄 유지
 `;

@@ -1,6 +1,13 @@
 import Footer from '@components/footer/footer';
-import Header from '@components/header/header';
 import { useState, useEffect } from 'react';
+import localFont from 'next/font/local';
+
+ const pretendard = localFont({
+   src: "../public/fonts/TmoneyRoundWindExtraBold.ttf",
+   display: "swap",
+   weight: "45 920",
+   variable: "--font-pretendard"
+ });
 
 const Layout = ({ children }: any) => {
 
@@ -38,8 +45,7 @@ const Layout = ({ children }: any) => {
 
 
   return (
-    <div>
-      {/* {showHeader && <Header />} */}
+    <div className={pretendard.className}>
       {children}
       <Footer />
     </div>
