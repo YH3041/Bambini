@@ -126,7 +126,7 @@ const Button = styled.div`
     background-color: #ac9ebf; /* 치료 안내 - 보라색 */
   }
   &:nth-child(3) {
-    background-color: #92d1d6; /* 평가 안내 - 청록색 */
+    background-color: #92d1d6; /* 바우처 안내 - 청록색 */
   }
   &:nth-child(4) {
     background-color: #ffc27f; /* 선생님 소개 - 핑크색 */
