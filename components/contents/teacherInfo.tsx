@@ -149,11 +149,7 @@ const Wrap = styled.div`
   width: 100vw;                // ✅ 화면 가로 전체 사용
   display: flex;
   flex-direction: column;
-  align-items: center;  
-
-  ${media('md')} {
-
-  }
+  align-items: center;
 `;
 
 const ContentWrap = styled.div`
@@ -167,6 +163,10 @@ const ContentWrap = styled.div`
   text-align: center;
   margin: 0 auto;
   background-color: #6a7b95;
+
+    @media (max-width: 767px) {
+    height: 400px;
+  }
 `;
 
 const IntoduceWrap = styled.div`
@@ -179,7 +179,6 @@ const IntoduceWrap = styled.div`
   margin: 90px auto;
   background-color: white;
   color: black;
-  /* max-width: 700px; */
   line-height: 1.25;
   gap: 100px 0px;
 `;
@@ -204,28 +203,38 @@ const InfoWrap = styled.div`
   }
 
   .info-image-wrap img {
-    object-fit: cover;    /* ✅ 전체 보이면서 크게 보임 */
+    object-fit: cover; 
   }
 
-  @media (max-width: 767px) {
-    padding-left: 20px;
-  }
-`;
+@media (max-width: 767px) {
+    flex-direction: column;
 
-const StyleBox = styled.div`
-  width: 10px;
-  /* background-color: #eec45e; */
-  border-radius: 10px;
+    .info-image-wrap {
+      width: 90%;
+      height: auto;         /* height는 auto로 두고 */
+      aspect-ratio: 5 / 6;  /* ✅ 여기서 높이를 확정 */
+      min-height: 240px;    /* 안전장치(선택) */
+    }
+  }
 `;
 
 const NameWithCareerWrap = styled.div`
- flex: 0 0 50%;        /* ✅ 나머지 60% */
+  flex: 0 0 50%;        /* ✅ 나머지 60% */
   display: flex;
   flex-direction: column;
   text-align: left;
+
+  @media (max-width: 767px) {
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Name = styled.h3`
+  font-size: 20px;
+  line-height: 1.2;
+    text-align: center;
+
   ${media('md')} {
     font-size: 32px;
     line-height: 1.5;
@@ -233,6 +242,9 @@ const Name = styled.h3`
 `;
 
 const Career = styled.h5`
+  font-size: 12px;
+      text-align: center;
+
     ${media('md')} {
       font-size: 20px;
   }
@@ -287,8 +299,13 @@ const ImageWrap = styled.div`
 
 const SubTitle = styled.h3`
     // 1920x1080 기준
-    font-size: 48px;
+    font-size: 24px;
     font-weight: bold;
     color: white;
-      white-space: nowrap;       // ✅ 줄바꿈 없이 한 줄 유지
+
+    // 1920x1080 사이즈
+    ${media('md')} {
+        font-size: 48px;
+        white-space: nowrap;
+    }
 `;

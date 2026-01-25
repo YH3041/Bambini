@@ -47,6 +47,7 @@ const Wrap = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+  margin-top: 30px;
 
   ${media('md')} {
     height: 1100px;
@@ -63,6 +64,10 @@ const ContentWrap = styled.div`
   position: relative;
   max-width: 800px;
   margin: 0 auto;
+
+    @media (max-width: 767px) {
+    margin-top: 24px;
+  }
 `;
 
 const HighlightText = styled.span`
@@ -84,14 +89,15 @@ const HighlightText = styled.span`
 
 const ProgramWrap = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);   /* ✅ 한 줄에 2개 */
-  gap: 50px 100px;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 30px 0;
   justify-content: center;
   padding: 20px;
   margin-bottom: 20px;
   
   ${media('md')} {
     grid-template-columns: repeat(2, 1fr);  // ✅ 4개 한 줄
+    gap: 50px 100px;
   }
 `;
 
@@ -104,15 +110,15 @@ const ItemWrap = styled.div`
 `;
 
 const SubTitle = styled.a`
-  font-size: 34px;
+   font-size: 14px;
   font-weight: bold;
   color: white;
   background-color: #6a7b95;
   padding: 10px 24px;
   border-radius: 20px;
-  line-height: 1.4;
-  min-width: 240px;
-  min-height: 190px;
+  line-height: 1.5;
+  min-width: 120px;
+  min-height: 100px;
     text-decoration: none;
   white-space: nowrap;
 
@@ -123,7 +129,19 @@ const SubTitle = styled.a`
   justify-content: center; 
 
   .small {
-    font-size: 22px;      /* ✅ 작은 글씨 */
+    font-size: 10px;      /* ✅ 작은 글씨 */
     font-weight: 500;
+  }
+
+    ${media('md')} {
+      font-size: 34px;
+        min-width: 240px;
+        min-height: 190px;
+        line-height: 1.4;
+
+      .small {
+        font-size: 22px;      /* ✅ 작은 글씨 */
+        font-weight: 500;
+    }
   }
 `;

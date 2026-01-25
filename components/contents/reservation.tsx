@@ -30,14 +30,14 @@ const Progream = forwardRef<HTMLDivElement, IProgream>((props, ref) => {
               <ImageWrap>
                   <Image src={IMG_RESERVATION} fill alt="전화" />
               </ImageWrap>
-              <SubTitle href="tel:01039735515">전화<br />상담/문의</SubTitle>
+              <SubTitle href="tel:01039735515">상담/문의<br />전화 연결하기</SubTitle>
             </ItemWrap>
           </ProgramWrap>
         <SubTitleWrap>
-            <h3>☑️ 초기 상담은 무료입니다.</h3>
-            <h3>☑️ 예약 없이 방문하시는 경우 상담이 어려울 수 있습니다.</h3>
-            <h3>☑️ 빠른 안내를 원하시는 경우, 13시-18시 사이에 전화주시기 바랍니다.</h3>
-            <h3>☎️ 031-374-5515 / 010-3973-5515</h3>
+            <span>☑️ 초기 상담은 무료입니다.</span>
+            <span>☑️ 예약 없이 방문하시는 경우 상담이 어려울 수 있습니다.</span>
+            <span>☑️ 빠른 안내를 원하시는 경우, 13시-18시 사이에 전화주시기 바랍니다.</span>
+            <span>☎️ 031-374-5515 / 010-3973-5515</span>
         </SubTitleWrap>
         </ContentWrap>
       </ContentLayout>
@@ -49,7 +49,7 @@ export default Progream;
 
 const Wrap = styled.div`
   width: 100%;
-  height: 700px;
+  height: 740px;
   background-color: #6a7b95;
   display: flex;
   align-items: center;
@@ -70,6 +70,10 @@ const ContentWrap = styled.div`
   position: relative;
   max-width: 800px;
   margin: 0 auto;
+
+      @media (max-width: 767px) {
+    margin-top: 60px;
+  }
 `;
 
 const HighlightText = styled.span`
@@ -91,13 +95,16 @@ const HighlightText = styled.span`
 
 const ProgramWrap = styled.div`
   display: flex;
-  gap: 24px 120px;
+  gap: 24px 0;;
   justify-content: center;
   padding: 20px;
-  margin-bottom: 20px;
-  
+  flex-direction: column;
+
   ${media('md')} {
     grid-template-columns: repeat(2, 1fr);  // ✅ 4개 한 줄
+    flex-direction: row;
+    gap: 24px 120px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -106,7 +113,12 @@ const ItemWrap = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 24px;
+
+
+    ${media('md')} {
+      gap: 40px;
+    }
 `;
 
 const ImageWrap = styled.div`
@@ -122,15 +134,16 @@ const ImageWrap = styled.div`
 `;
 
 const SubTitle = styled.a`
-  font-size: 28px;
+  font-size: 14px;
   font-weight: bold;
   color: black;
   background-color: #eec45e;
   padding: 10px 24px;
   border-radius: 10px;
   line-height: 1.4;
-  min-height: 140px;
-    text-decoration: none;
+  min-width: 124px;
+  min-height: 80px;
+  text-decoration: none;
   white-space: nowrap;
 
   /* 👇 가운데 정렬 핵심 */
@@ -138,6 +151,12 @@ const SubTitle = styled.a`
   align-items: center;        /* 세로 가운데 */
   justify-content: center;    /* 가로 가운데 */
   text-align: center;         /* 줄바꿈 시 대비 */
+
+  ${media('md')} {
+      font-size: 28px;
+      min-width: 220px;
+      min-height: 140px;
+  }
 `;
 
 const SubTitleWrap = styled.div`
@@ -147,10 +166,33 @@ const SubTitleWrap = styled.div`
     justify-content: center;
     align-items: flex-start;
     color: black;
-    width: 650px;
-    height: 200px;
+    max-width: 430px;
+    height: 120px;
     border-radius: 16px;
     padding: 20px 10px;
-    margin-top: 10px;
     line-height: 2;
+    margin-top: 8px;
+    margin-bottom: 28px;
+    
+    span
+    {
+      font-size: 9px;
+    }
+
+    ${media('md')} {
+      max-width: 700px;
+      width: 650px;
+      height: 200px;
+      font-size: 28px;
+      line-height: 2;
+      align-items: flex-start;
+      margin-top: 10px;
+      justify-content: center;
+      line-height: 2;
+    
+     span
+      {
+        font-size: 18px;
+      }
+  }
 `;

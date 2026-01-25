@@ -55,7 +55,7 @@ export default Progream;
 
 const Wrap = styled.div`
   width: 100%;
-  height: 650px;
+  height: 600px;
   background-color: #6a7b95;
   display: flex;
   align-items: center;
@@ -84,7 +84,7 @@ const HighlightText = styled.span`
   background-color: #eec45e;
   padding: 10px;
   border-radius: 6px;
-  margin-top: 24px;
+  //margin-top: 24px;
   margin-bottom: 24px;
   text-align: center;
 
@@ -129,9 +129,12 @@ const ImageWrap = styled.div`
 `;
 
 const SubTitle = styled.h3`
-  font-size: 28px;
+  font-size: 18px;
   font-weight: bold;
   color: white;
 
-  white-space: nowrap;       // ✅ 줄바꿈 없이 한 줄 유지
+    ${media('md')} {
+      white-space: nowrap;       // ✅ 줄바꿈 없이 한 줄 유지
+      font-size: 28px;
+  }
 `;

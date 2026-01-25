@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { IMG_MAP } from '@constants/images/images.constants';
 import { forwardRef } from 'react';
 import styled from '@emotion/styled';
+import { media } from '@styles/media';
 
 interface IMap {
 
@@ -45,11 +46,19 @@ const SubTitleWrap = styled.div`
     align-items: flex-start;
     color: black;
     border-radius: 16px;
-    padding: 20px 10px;
+    padding: 10px 0px;
     line-height: 3;
-    margin: 40px auto;
+    margin: 0 auto;
+    font-size: 9px;
 
-.line1 {
-  line-height: 1.5;
-}
+    .line1 {
+      line-height: 1.5;
+    }
+
+    ${media('md')} {
+      gap: 40px;
+       font-size: 16px;
+       padding: 20px 10px;
+       margin: 40px auto;
+    }
 `;
