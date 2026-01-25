@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react';
 import localFont from 'next/font/local';
 
  const pretendard = localFont({
-   src: "../public/fonts/TmoneyRoundWindExtraBold.ttf",
+   src: "../fonts/TmoneyRoundWindExtraBold.ttf",
    display: "swap",
-   weight: "45 920",
-   variable: "--font-pretendard"
+   weight: "800",
+   //variable: "--font-pretendard"
  });
 
 const Layout = ({ children }: any) => {
