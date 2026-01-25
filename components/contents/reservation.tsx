@@ -22,7 +22,7 @@ const Progream = forwardRef<HTMLDivElement, IProgream>((props, ref) => {
           <ProgramWrap>
             <ItemWrap>
               <ImageWrap>
-                  <Image src={IMG_PHONE} fill alt="초기 상담" />
+                  <Image src={IMG_PHONE} fill alt="초기상담" />
               </ImageWrap>
               <SubTitle href='https://form.naver.com/response/WwlwpVUZE8v6377fS1Qikg' target="_blank" rel="noopener noreferrer">초기 상담<br />온라인 예약<br />바로가기</SubTitle>
             </ItemWrap>

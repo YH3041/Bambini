@@ -7,7 +7,7 @@ export const IMG_LANGUAGE = `${BASE_URL}/language.png`;
 export const IMG_SENSORY = `${BASE_URL}/sensory.png`;
 export const IMG_GROUP = `${BASE_URL}/group.png`;
 export const IMG_TECHERS = `${BASE_URL}/techers.png`;
-export const IMG_PHONE = `${BASE_URL}/Phone.png`;
+export const IMG_PHONE = `${BASE_URL}/phone.png`;
 export const IMG_RESERVATION = `${BASE_URL}/Reservation.png`;
 
 export const IMG_TECHERS_ROODA = `${BASE_URL}/rooda.png`;
