@@ -3,14 +3,14 @@ import styled from '@emotion/styled';
 import { media } from '@styles/media';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { IMG_LANGUAGE, IMG_COGNITIVE, IMG_ART, IMG_GROUP } from '@constants/images/images.constants';
+import { IMG_PHONE, IMG_RESERVATION } from '@constants/images/images.constants';
 import { forwardRef } from 'react';
 
-interface IProgream {
+interface IVoucher {
 
 }
 
-const Progream = forwardRef<HTMLDivElement, IProgream>((props, ref) => {
+const Voucher = forwardRef<HTMLDivElement, IVoucher>((props, ref) => {
   // next
   const { push } = useRouter();
 
@@ -18,31 +18,19 @@ const Progream = forwardRef<HTMLDivElement, IProgream>((props, ref) => {
     <Wrap ref={ref}>
       <ContentLayout>
         <ContentWrap>
-          <HighlightText>프로그램 안내</HighlightText>
+          <HighlightText>이용 가능한 바우처 서비스</HighlightText>
           <ProgramWrap>
             <ItemWrap>
-              <ImageWrap>
-                  <Image src={IMG_LANGUAGE} fill alt="언어" />
-              </ImageWrap>
-              <SubTitle>언어</SubTitle>
+              <SubTitle>발달재활<br />서비스</SubTitle>
             </ItemWrap>
             <ItemWrap>
-              <ImageWrap>
-                  <Image src={IMG_COGNITIVE} fill alt="인지" />
-              </ImageWrap>
-              <SubTitle>인지</SubTitle>
+              <SubTitle>우리아이<br />심리지원<br/>서비스</SubTitle>
             </ItemWrap>
             <ItemWrap>
-              <ImageWrap>
-                  <Image src={IMG_ART} fill alt="미술" />
-              </ImageWrap>
-              <SubTitle>미술</SubTitle>
+              <SubTitle><span className="small">경기도교육청</span><span>꿈e든</span><span>카드</span></SubTitle>
             </ItemWrap>
             <ItemWrap>
-              <ImageWrap>
-                  <Image src={IMG_GROUP} fill alt="그룹" />
-              </ImageWrap>
-              <SubTitle>짝/그룹 수업</SubTitle>
+              <SubTitle><span className="small">경기도교육청</span><span className='small'>난독바우처</span><span>그린나래</span><span>카드</span></SubTitle>
             </ItemWrap>
           </ProgramWrap>
         </ContentWrap>
@@ -51,12 +39,11 @@ const Progream = forwardRef<HTMLDivElement, IProgream>((props, ref) => {
   );
 });
 
-export default Progream;
+export default Voucher;
 
 const Wrap = styled.div`
   width: 100%;
-  height: 650px;
-  background-color: #6a7b95;
+  height: 700px;
   display: flex;
   align-items: center;
   position: relative;
@@ -97,41 +84,46 @@ const HighlightText = styled.span`
 
 const ProgramWrap = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 26px 70px;
+  grid-template-columns: repeat(2, 1fr);   /* ✅ 한 줄에 2개 */
+  gap: 50px 100px;
   justify-content: center;
   padding: 20px;
   margin-bottom: 20px;
   
   ${media('md')} {
-    grid-template-columns: repeat(4, 1fr);  // ✅ 4개 한 줄
+    grid-template-columns: repeat(2, 1fr);  // ✅ 4개 한 줄
   }
 `;
 
 const ItemWrap = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 20px;
 `;
 
-const ImageWrap = styled.div`
-    width: 100px;
-    height: 100px;
-    overflow: hidden;
-    position: relative;
-
-    ${media('md')} {
-        width: 130px;
-        height: 130px;
-    }
-`;
-
-const SubTitle = styled.h3`
-  font-size: 28px;
+const SubTitle = styled.a`
+  font-size: 34px;
   font-weight: bold;
   color: white;
+  background-color: #6a7b95;
+  padding: 10px 24px;
+  border-radius: 20px;
+  line-height: 1.4;
+  min-width: 240px;
+  min-height: 190px;
+    text-decoration: none;
+  white-space: nowrap;
 
-  white-space: nowrap;       // ✅ 줄바꿈 없이 한 줄 유지
+  /* 👇 가운데 정렬 핵심 */
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+
+  .small {
+    font-size: 22px;      /* ✅ 작은 글씨 */
+    font-weight: 500;
+  }
 `;

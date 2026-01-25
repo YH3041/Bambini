@@ -7,6 +7,15 @@ export const IMG_LANGUAGE = `${BASE_URL}/language.png`;
 export const IMG_SENSORY = `${BASE_URL}/sensory.png`;
 export const IMG_GROUP = `${BASE_URL}/group.png`;
 export const IMG_TECHERS = `${BASE_URL}/techers.png`;
+export const IMG_PHONE = `${BASE_URL}/Phone.png`;
+export const IMG_RESERVATION = `${BASE_URL}/Reservation.png`;
+
+export const IMG_TECHERS_ROODA = `${BASE_URL}/rooda.png`;
+export const IMG_TECHERS_HYEWOOK = `${BASE_URL}/hyewook.png`;
+export const IMG_TECHERS_JIEUN = `${BASE_URL}/Jieun.png`;
+export const IMG_TECHERS_MINSEO = `${BASE_URL}/Minseo.png`;
+export const IMG_TECHERS_BOMIN = `${BASE_URL}/Bomin.png`;
+export const IMG_TECHERS_SUNMI = `${BASE_URL}/Sunmi.png`;
 
 // Logo
 export const IMG_LOGO = `${BASE_URL}/logo/logo2.png`;

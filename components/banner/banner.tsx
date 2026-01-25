@@ -44,7 +44,7 @@ const Wrap = styled.div`
   position: relative;
 
   ${media('md')} {
-    height: 700px;
+    height: 1100px;
   }
 `;
 

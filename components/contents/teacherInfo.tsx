@@ -2,15 +2,15 @@ import styled from '@emotion/styled';
 import { media } from '@styles/media';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { IMG_TECHERS } from '@constants/images/images.constants';
+import { IMG_TECHERS, IMG_TECHERS_ROODA, IMG_TECHERS_HYEWOOK, IMG_TECHERS_JIEUN, IMG_TECHERS_MINSEO, IMG_TECHERS_BOMIN, IMG_TECHERS_SUNMI } from '@constants/images/images.constants';
 import { forwardRef } from 'react';
 
-interface ITecherInfo {
+interface IReservation {
 
 }
 
-const TecherInfo = forwardRef<HTMLDivElement, ITecherInfo>((props, ref) => {
-  // next
+const Reservation = forwardRef<HTMLDivElement, IReservation>((props, ref) => {
+  // next 
   const { push } = useRouter();
 
   return (
@@ -22,48 +22,48 @@ const TecherInfo = forwardRef<HTMLDivElement, ITecherInfo>((props, ref) => {
               <ImageWrap>
                   <Image src={IMG_TECHERS} fill alt="언어" />
               </ImageWrap>
-              <SubTitle>전문성을 갖춘 7인 전문가 팀</SubTitle>
+              <SubTitle>전문성을 갖춘 6인의 전문가 팀</SubTitle>
             </ItemWrap>
           </ProgramWrap>
         </ContentWrap>
         <IntoduceWrap>
           <InfoWrap>
-              {/* <ImageWrap>
-                  <Image src={IMG_LANGUAGE} fill alt="언어" />
-              </ImageWrap> */}
-            <StyleBox />
+              <ImageWrap className="info-image-wrap">
+                  <Image src={IMG_TECHERS_ROODA} fill alt="언어" />
+              </ImageWrap>
             <NameWithCareerWrap>
-              <Name>센터장<br />언어치료사 이루다</Name>
+              <Name>센터장<br />언어치료사&nbsp;&nbsp;&nbsp;이루다</Name>
               <br />
               <br />
               <Career>보건복지부 1급 언어재활사</Career>
               <br />
-              <Career>나사렛대학교 일반대학원 언어치료학 박사</Career>
-              <Career>나사렛대학교 일반대학원 언어치료학 석사</Career>
               <Career>나사렛대학교 언어치료학 학사</Career>
+              <Career>나사렛대학교 일반대학원 언어치료학 석사</Career>
+              <Career>나사렛대학교 일반대학원 언어치료학 박사</Career>
               <br />
               <Career>전) 광명 G그린발달센터</Career>
               <Career>전) 수원 우리동네심리발달상담센터</Career>
               <Career>전) H사 마비말장애 진단 치료 어플 개발 연구 자문</Career>
-              <Career>전) 충정북도교육청 아이성장골든타임 사업 컨설턴트</Career>
+              <Career>전) 충청북도교육청 난독증 학생 지원 사업 수퍼바이저</Career>
+              <Career>현) 우송대학교 보건복지대학원 언어청각재활학전공 강사</Career>
+              <Career>현) 나사렛대학교 언어치료학과 겸임교수</Career>
               <br />
               <Career>언어재활사를 위한 말소리 전사와 오류패턴 분석(공저, 학지사,2025)</Career>
             </NameWithCareerWrap>
           </InfoWrap>
           <InfoWrap>
-            {/* <ImageWrap>
-              <Image src={IMG_LANGUAGE} fill alt="언어" />
-            </ImageWrap> */}
-            <StyleBox />
+              <ImageWrap className="info-image-wrap">
+                  <Image src={IMG_TECHERS_HYEWOOK} fill alt="인지" />
+              </ImageWrap>
             <NameWithCareerWrap>
-              <Name>센터장<br />인지치료사 최혜욱</Name>
+              <Name>센터장<br />인지치료사&nbsp;&nbsp;&nbsp;최혜욱</Name>
               <br />
               <br />
               <Career>교육인적자원부 특수학교 2급 정교사</Career>
               <Career>대한학습치료사협회 1급 인지학습치료사</Career>
               <br />
-              <Career>루터대학교 특수대학원 언어치료학 석사</Career>
               <Career>대구대학교 재활심리학 학사(초등특수교육 부전공)</Career>
+              <Career>루터대학교 특수대학원 언어치료학 석사</Career>
               <br />
               <Career>전) 강북장애인종합복지관 팀장</Career>
               <Career>전) 구리시장애인종합복지관</Career>
@@ -71,17 +71,19 @@ const TecherInfo = forwardRef<HTMLDivElement, ITecherInfo>((props, ref) => {
             </NameWithCareerWrap>
           </InfoWrap>
           <InfoWrap>
-            <StyleBox />
+              <ImageWrap className="info-image-wrap">
+                <Image src={IMG_TECHERS_MINSEO} fill alt="인지" />
+              </ImageWrap>
             <NameWithCareerWrap>
-              <Name>인지치료사 강민서</Name>
+              <Name>인지치료사&nbsp;&nbsp;&nbsp;강민서</Name>
               <br />
               <Career>보건복지부 작업치료사 면허</Career>
               <Career>대한학습치료사협회 인지학습상담전문가 2급</Career>
               <Career>한국 PnP 전문가협회 아동자극수용발달전문가 3급</Career>
               <br />
-              <Career>가천대학교 치료특수대학원 심리인지치료학전공 석사</Career>
-              <Career>대구사이버대학교 놀이치료학과 학사</Career>
               <Career>동남보건대학교 작업치료전공 보건전문학사</Career>
+              <Career>대구사이버대학교 놀이치료학과 학사</Career>
+              <Career>가천대학교 치료특수대학원 심리인지치료학전공 석사</Career>
               <br />
               <Career>전) 용인시기흥장애인복지관</Career>
               <Career>전) 수원 우리동네심리발달상담센터</Career>
@@ -89,22 +91,11 @@ const TecherInfo = forwardRef<HTMLDivElement, ITecherInfo>((props, ref) => {
             </NameWithCareerWrap>
           </InfoWrap>
           <InfoWrap>
-            <StyleBox />
+              <ImageWrap className="info-image-wrap">
+                <Image src={IMG_TECHERS_JIEUN} fill alt="언어" />
+              </ImageWrap>
             <NameWithCareerWrap>
-              <Name>언어치료사 홍진아</Name>
-              <br />
-              <br />
-              <Career>보건복지부 2급 언어재활사</Career>
-              <br />
-              <Career>나사렛대학교 일반대학원 언어치료학 석사</Career>
-              <br />
-              <Career>전) 서울 가온누리아동심리상담센터</Career>
-            </NameWithCareerWrap>
-          </InfoWrap>
-          <InfoWrap>
-            <StyleBox />
-            <NameWithCareerWrap>
-              <Name>언어치료사 이지은</Name>
+              <Name>언어치료사&nbsp;&nbsp;&nbsp;이지은</Name>
               <br />
               <br />
               <Career>보건복지부 2급 언어재활사</Career>
@@ -115,24 +106,28 @@ const TecherInfo = forwardRef<HTMLDivElement, ITecherInfo>((props, ref) => {
             </NameWithCareerWrap>
           </InfoWrap>
           <InfoWrap>
-            <StyleBox />
+              <ImageWrap className="info-image-wrap">
+                <Image src={IMG_TECHERS_SUNMI} fill alt="미술" />
+              </ImageWrap>
             <NameWithCareerWrap>
-              <Name>미술교사 민선미</Name>
+              <Name>미술교사&nbsp;&nbsp;&nbsp;민선미</Name>
               <br />
               <br />
               <Career>코리아홀리스틱상담교육협회 미술심리상담사 2급</Career>
               <br />
-              <Career>성신여자대학교 일반대학원 동양학과 중퇴</Career>
               <Career>창원대학교 미술학과 한국화전공</Career>
+              <Career>성신여자대학교 일반대학원 동양학과 중퇴</Career>
               <br />
-              <Career>전) 대치 입시미술 전문 개인지도 강사</Career>
+              <Career>전) 대치동 입시미술 전문 개인지도 강사</Career>
               <Career>전) 창원 그림마당 원장</Career>
             </NameWithCareerWrap>
           </InfoWrap>
           <InfoWrap>
-            <StyleBox />
+              <ImageWrap className="info-image-wrap">
+                <Image src={IMG_TECHERS_BOMIN} fill alt="미술" />
+              </ImageWrap>
             <NameWithCareerWrap>
-              <Name>미술교사 이보민</Name>
+              <Name>미술교사&nbsp;&nbsp;&nbsp;이보민</Name>
               <br />
               <br />
               <Career>한국직업평가진흥협회 미술심리상담지도사 1급</Career>
@@ -148,13 +143,14 @@ const TecherInfo = forwardRef<HTMLDivElement, ITecherInfo>((props, ref) => {
   );
 });
 
-export default TecherInfo;
+export default Reservation;
 
 const Wrap = styled.div`
   width: 100vw;                // ✅ 화면 가로 전체 사용
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center;  
+
   ${media('md')} {
 
   }
@@ -162,9 +158,10 @@ const Wrap = styled.div`
 
 const ContentWrap = styled.div`
   width: 100vw;                // ✅ 화면 가로 전체 사용
+  height: 1050px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   color: white;
   text-align: center;
@@ -192,8 +189,23 @@ const InfoWrap = styled.div`
   gap: 12px;
   align-items: stretch;
   width: 100%;
-  max-width: 800px;        // ✅ 중앙 정렬 기준 폭 설정
+  max-width: 1400px;        // ✅ 중앙 정렬 기준 폭 설정
   align-self: center;      // ✅ IntoduceWrap의 중앙 기준으로 가운데 배치
+  line-height: 1.8;        // 🔹 세로 간격(행간) 증가
+
+  .info-image-wrap {
+    flex: 0 0 30%;        /* ✅ 40% 고정 */
+    position: relative;   /* next/image fill 필수 */
+    width: 500px;
+    height: 600px;
+    overflow: hidden;
+    object-position: top;
+    margin-top: 0;
+  }
+
+  .info-image-wrap img {
+    object-fit: cover;    /* ✅ 전체 보이면서 크게 보임 */
+  }
 
   @media (max-width: 767px) {
     padding-left: 20px;
@@ -202,11 +214,12 @@ const InfoWrap = styled.div`
 
 const StyleBox = styled.div`
   width: 10px;
-  background-color: #eec45e;
+  /* background-color: #eec45e; */
   border-radius: 10px;
 `;
 
 const NameWithCareerWrap = styled.div`
+ flex: 0 0 50%;        /* ✅ 나머지 60% */
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -214,7 +227,8 @@ const NameWithCareerWrap = styled.div`
 
 const Name = styled.h3`
   ${media('md')} {
-    font-size: 28px;
+    font-size: 32px;
+    line-height: 1.5;
   }
 `;
 
@@ -262,15 +276,18 @@ const ImageWrap = styled.div`
     overflow: hidden;
     position: relative;
     margin: auto;
-
+    margin-bottom: 20px;
+   
+    // 1920x1080 사이즈
     ${media('md')} {
-        width: 130px;
-        height: 130px;
+        width: 200px;
+        height: 200px;
     }
 `;
 
 const SubTitle = styled.h3`
-    font-size: 26px;
+    // 1920x1080 기준
+    font-size: 48px;
     font-weight: bold;
     color: white;
       white-space: nowrap;       // ✅ 줄바꿈 없이 한 줄 유지

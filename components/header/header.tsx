@@ -161,7 +161,8 @@ const MenuItem = styled.li`
   }
   cursor: pointer;
   &:hover {
-    color: var(--pink);
+    /* color: var(--pink); */
+      color: #eec45e;
   }
 `;
 
@@ -221,7 +222,8 @@ const DropdownItem = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: var(--pink);
+    /* background-color: var(--pink); */
+    background-color: #eec45e;
   }
 `;
 

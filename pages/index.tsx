@@ -2,8 +2,10 @@ import Header from '@components/header/header';
 import Banner from '@components/banner/banner';
 import TecherInfo from '@components/contents/teacherInfo';
 import Progream from '@components/contents/progream';
+import Reservation from '@components/contents/reservation';
+import Voucher from '@components/contents/voucher';
+import Map from '@components/contents/map';
 import SEO from '@components/seo/seo';
-import Map from '@components/trending/map';
 import { IMG_LOGO } from '@constants/images/images.constants';
 import styled from '@emotion/styled';
 import axios from 'axios';
@@ -72,7 +74,7 @@ const Home: NextPage<IHome> = ({ banner }) => {
     }, []);
 
   const handleScrollToSection = (idx: number) => {
-    const headerOffset = 60;
+    const headerOffset = 50;
     const element = sectionRefs[idx]?.current;
   
     if (element && idx == 1 || element && idx == 5) {
@@ -97,8 +99,10 @@ const Home: NextPage<IHome> = ({ banner }) => {
       <Banner ref={sectionRefs[0]} banner={banner} onButtonClick={handleScrollToSection}/>
       <TecherInfo ref={sectionRefs[1]} />
       <Progream ref={sectionRefs[2]}/>
+      <Voucher ref={sectionRefs[3]}/>
+      <Reservation ref={sectionRefs[4]}/>
       <Map ref={sectionRefs[5]} />
-      <div style={{ height: 1000 }}></div>
+      {/* <div style={{ height: 1000 }}></div> */}
     </Wrap>
   );
 };
