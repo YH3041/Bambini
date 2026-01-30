@@ -1,6 +1,7 @@
 import Footer from '@components/footer/footer';
 import { useState, useEffect } from 'react';
 import localFont from 'next/font/local';
+import { Analytics } from '@vercel/analytics/react'
 
  const pretendard = localFont({
    src: "../fonts/TmoneyRoundWindExtraBold.ttf",
@@ -47,6 +48,7 @@ const Layout = ({ children }: any) => {
   return (
     <div className={pretendard.className}>
       {children}
+      <Analytics />
       <Footer />
     </div>
   );
